@@ -24,14 +24,16 @@ class UserController extends Controller
                 // 'id',
                 // AllowedFilter::partial('id'),
                 // AllowedFilter::partial('id')->default(1),
-                // AllowedFilter::partial('num', 'id'),
+                // AllowedFilter::partial('id')->ignore(['-1']),
                 // AllowedFilter::beginsWithStrict('id'),
                 // AllowedFilter::endsWithStrict('id'),
                 // AllowedFilter::exact('id'),
                 // AllowedFilter::operator('id', FilterOperator::DYNAMIC),
-                // AllowedFilter::operator(name: 'num', filterOperator: FilterOperator::DYNAMIC, internalName: 'id'),
                 // 'role.name'
 
+                //aliases
+                // AllowedFilter::partial('num', 'id'),
+                // AllowedFilter::operator(name: 'num', filterOperator: FilterOperator::DYNAMIC, internalName: 'id'),
 
                 //scopes
                 // AllowedFilter::scope('roleEqual'),
