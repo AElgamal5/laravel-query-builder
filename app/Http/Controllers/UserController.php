@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\FiltersRoleName;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -42,12 +43,14 @@ class UserController extends Controller
                 //trashed
                 // AllowedFilter::trashed(),
 
-                //callback
+                //callbacks
                 // AllowedFilter::callback('last', fn(Builder $query, mixed $value) => $query->latest('id')->limit($value)),
                 // AllowedFilter::callback('last', function (Builder $query, mixed $value, string $name) {
                 //     $query->latest('id')->limit($value);
                 // }),
 
+                //customs
+                // AllowedFilter::custom('roleName', new FiltersRoleName),
             ])
             // ->with('role')
             ->get();
