@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -52,5 +54,15 @@ class User extends Authenticatable
     public function role(): BelongsTo
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function scopeRoleEqual(Builder $query, int $roleId): Builder
+    {
+        return $query->where('role_id', $roleId);
+    }
+
+    public function scopeValidatedBetween(Builder $query, string $date1, string $date2): Builder
+    {
+        return $query->whereBetween('email_verified_at', [Carbon::parse($date1), Carbon::parse($date2)]);
     }
 }
