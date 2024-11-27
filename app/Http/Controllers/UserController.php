@@ -32,6 +32,11 @@ class UserController extends Controller
                 //aliases
                 // AllowedInclude::relationship('rank', 'role'),
                 // AllowedInclude::relationship('rank.authorities', 'role.permissions')
+
+                //callback
+                // AllowedInclude::callback('role', function ($query) {
+                //     $query->with('role');
+                // }),
             ])
             ->get();
 
