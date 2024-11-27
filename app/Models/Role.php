@@ -5,14 +5,20 @@ namespace App\Models;
 use App\Traits\HasColumnList;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Role extends Model
 {
 
-    use HasFactory, HasColumnList;
+    use HasFactory;
 
     protected $fillable = [
         'name',
         'description',
     ];
+
+    public function permissions(): BelongsToMany
+    {
+        return $this->belongsToMany(Permission::class);
+    }
 }
