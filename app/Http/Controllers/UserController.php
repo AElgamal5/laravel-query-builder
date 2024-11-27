@@ -13,26 +13,17 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users = QueryBuilder::for(User::class)
-            ->allowedIncludes([
+            ->allowedFields([
                 //basic
-                // 'role',
+                'id',
+                'name',
 
-                //nested
-                // 'role.permissions',
-
-                //count
-                // AllowedInclude::count('roleCount'),
-
-                //exist
-                // AllowedInclude::exists('roleExists'),
-
-                //note
-                // 'role',  // allows including `role` or `roleCount` or `roleExists`
-
-                //aliases
-                // AllowedInclude::relationship('rank', 'role'),
-                // AllowedInclude::relationship('rank.authorities', 'role.permissions')
+                //with relationships
+                'roles.id',
+                'roles.name',
+                'roles.description',
             ])
+            ->allowedIncludes(['role'])
             ->get();
 
         return response()->json($users);
