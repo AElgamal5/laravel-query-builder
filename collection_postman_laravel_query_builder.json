@@ -1,0 +1,294 @@
+{
+    "info": {
+        "_postman_id": "42c4543b-c752-49ac-bfdd-e520bda69fde",
+        "name": "laravel_query_builder",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "filtering",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/users",
+                    "query": [
+                        {
+                            "key": "filter[name]",
+                            "value": "DVM",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[email]",
+                            "value": "net",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[name]",
+                            "value": "DVM,Ray",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[test]",
+                            "value": "test",
+                            "disabled": true
+                        },
+                        {
+                            "key": "-----------------------------------------------------------------------------------------------------------------------------",
+                            "value": "-----------------------------------------------------------------------------------------------------------------------------",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[num]",
+                            "value": "12",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[id]",
+                            "value": "-1",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[id]",
+                            "value": "12",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[id]",
+                            "value": "> 99",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[num]",
+                            "value": "> 99",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[role.name]",
+                            "value": "id",
+                            "disabled": true
+                        },
+                        {
+                            "key": "-----------------------------------------------------------------------------------------------------------------------------",
+                            "value": "-----------------------------------------------------------------------------------------------------------------------------",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[roleEqual]",
+                            "value": "3",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[validatedBetween]",
+                            "value": "2000-01-01,2002-01-01",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[trashed]",
+                            "value": "only",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[trashed]",
+                            "value": "with",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[last]",
+                            "value": "1",
+                            "disabled": true
+                        },
+                        {
+                            "key": "filter[roleName]",
+                            "value": "officia",
+                            "disabled": true
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "users"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "sorting",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/users?sort=role-name",
+                    "query": [
+                        {
+                            "key": "sort",
+                            "value": "id",
+                            "disabled": true
+                        },
+                        {
+                            "key": "sort",
+                            "value": "name-length",
+                            "disabled": true
+                        },
+                        {
+                            "key": "sort",
+                            "value": "num",
+                            "disabled": true
+                        },
+                        {
+                            "key": "sort",
+                            "value": "role-name"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "users"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "including-relationships",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/users",
+                    "query": [
+                        {
+                            "key": "include",
+                            "value": "role",
+                            "disabled": true
+                        },
+                        {
+                            "key": "include",
+                            "value": "role.permissions",
+                            "disabled": true
+                        },
+                        {
+                            "key": "include",
+                            "value": "roleCount",
+                            "disabled": true
+                        },
+                        {
+                            "key": "include",
+                            "value": "roleExists",
+                            "disabled": true
+                        },
+                        {
+                            "key": "include",
+                            "value": "role,roleCount,roleExists",
+                            "disabled": true
+                        },
+                        {
+                            "key": "include",
+                            "value": "rank,rankCount,rankExists",
+                            "disabled": true
+                        },
+                        {
+                            "key": "include",
+                            "value": "rank.authorities",
+                            "disabled": true
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "users"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "selecting",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/users",
+                    "query": [
+                        {
+                            "key": "fields",
+                            "value": "id",
+                            "disabled": true
+                        },
+                        {
+                            "key": "fields",
+                            "value": "id,name",
+                            "disabled": true
+                        },
+                        {
+                            "key": "include",
+                            "value": "role",
+                            "disabled": true
+                        },
+                        {
+                            "key": "fields[roles]",
+                            "value": "id,name",
+                            "disabled": true
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "users"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                }
+            }
+        }
+    ]
+}
